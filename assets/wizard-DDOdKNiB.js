@@ -87,6 +87,8 @@ Arguments: `+Array.prototype.slice.call(a).join(``)+`
 💡 相處建議
 （具體可行的互動建議）
 
+中立原則：不可假設兩人的職業、行業、生活背景。只根據出生資料分析。
+
 語氣：溫暖有洞察力，正面為主但誠實，具體有畫面感。`,lo=[`正在解讀你的命運密碼...`,`分析你的個人能量場...`,`推算今年的運勢走向...`,`尋找你的天賦與潛能...`,`比對多重命理維度...`,`計算流年能量變化...`,`描繪你的命運藍圖...`,`綜合分析即將完成...`],uo=`你是「命理三鏡」的高級命理分析師。
 
 核心規則（極重要，必須嚴格遵守）：
@@ -121,6 +123,11 @@ Arguments: `+Array.prototype.slice.call(a).join(``)+`
 ⚡ 近期關鍵提醒
 （最近 1-3 個月特別需要注意的事）
 
+中立原則（極重要）：
+你只知道用戶的出生資料和關注方向，完全不知道用戶的職業、行業、家庭、收入、教育等背景。
+絕對不可猜測或假設用戶的具體職業或生活狀況。
+描述特質和建議要保持通用，例如：說「你適合需要策略思維的工作」而不是「你適合當管理顧問」。
+
 語氣風格：
 像一位溫暖睿智的顧問在跟朋友聊天，不是冷冰冰的算命師。正面為主但風險誠實說。具體、有畫面感，避免空泛。不需要加免責聲明。`;function fo(e,t){let n=uo;if(e.length>0){let t={};e.forEach(e=>{t[e.category]||(t[e.category]=[]),t[e.category].push(e)}),n+=`
 
@@ -152,7 +159,8 @@ ${f}
 ⚠️ 嚴格遵守系統規則：不提任何命理系統名稱和專有術語，用自然語言表達所有洞見。
 ⚠️ 按照指定的輸出格式（天賦特質 → 主題深度解析 → 年運勢 → 建議 → 近期提醒）組織內容。
 ⚠️ 重點針對用戶關注的「${s}」方向深入分析。
-⚠️ 三套排盤的結論要交叉驗證，共鳴點重點強調，矛盾處以多數為準。`,v=await fetch(no,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({images:[],system:m,prompt:g})});if(!v.ok)throw Error(`分析失敗`);let{job_id:b}=await v.json();D(`描繪你的命運藍圖...`);for(let e=0;e<300;e++){await new Promise(e=>setTimeout(e,3e3));try{let e=await fetch(`${no}/${b}`);if(!e.ok)continue;let t=await e.json();if(t.status===`done`){k(t.result);break}}catch{continue}}T(!1),D(``),i(po+1)}catch(e){N(`分析過程發生錯誤：`+e.message),T(!1)}finally{clearInterval(t)}},_e=async e=>{if(!(!e.trim()||pe)){ue(t=>[...t,{role:`user`,text:e}]),fe(``),me(!0);try{let t=fo(ao(),s),n=le.slice(-6).map(e=>`${e.role===`user`?`問`:`答`}：${e.text}`).join(`
+⚠️ 三套排盤的結論要交叉驗證，共鳴點重點強調，矛盾處以多數為準。
+⚠️ 絕對不可假設或猜測用戶的職業、行業、家庭狀況、生活背景。你只知道用戶提供的出生資料，不知道其他任何事。描述特質和建議時要保持中立通用，例如說「你適合需要統籌協調的領域」而不是「你適合供應鏈管理」。`,v=await fetch(no,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({images:[],system:m,prompt:g})});if(!v.ok)throw Error(`分析失敗`);let{job_id:b}=await v.json();D(`描繪你的命運藍圖...`);for(let e=0;e<300;e++){await new Promise(e=>setTimeout(e,3e3));try{let e=await fetch(`${no}/${b}`);if(!e.ok)continue;let t=await e.json();if(t.status===`done`){k(t.result);break}}catch{continue}}T(!1),D(``),i(po+1)}catch(e){N(`分析過程發生錯誤：`+e.message),T(!1)}finally{clearInterval(t)}},_e=async e=>{if(!(!e.trim()||pe)){ue(t=>[...t,{role:`user`,text:e}]),fe(``),me(!0);try{let t=fo(ao(),s),n=le.slice(-6).map(e=>`${e.role===`user`?`問`:`答`}：${e.text}`).join(`
 `),r=`之前的分析報告：\n${O.slice(0,2e3)}\n\n${n?`對話紀錄：\n${n}\n\n`:``}用戶追問：${e}\n\n⚠️ 回答時嚴格遵守規則：不提任何命理系統名稱和專有術語，用自然語言回覆。`,i=await fetch(no,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({images:[],system:t,prompt:r})});if(!i.ok)throw Error(`送出失敗`);let{job_id:a}=await i.json();for(let e=0;e<200;e++){await new Promise(e=>setTimeout(e,3e3));let e=await fetch(`${no}/${a}`);if(!e.ok)continue;let t=await e.json();if(t.status===`done`){ue(e=>[...e,{role:`assistant`,text:t.result}]);break}}}catch(e){ue(t=>[...t,{role:`assistant`,text:`抱歉，回覆失敗：`+e.message}])}finally{me(!1)}}},ve=async()=>{oe(!0),ce(``),N(``);let e=0;D(`正在解讀兩人的緣分密碼...`);let t=setInterval(()=>{let t=[`分析兩人的能量互動...`,`比對命運交會點...`,`推算關係走向...`,`描繪你們的緣分藍圖...`];e=(e+1)%t.length,D(t[e])},3e3);try{let e=parseInt(_)||0,t=parseInt(y)||0,n=parseInt(B),r=parseInt(H),i=parseInt(W),o=parseInt(te)||12,s=parseInt(re)||0,c=te!==``,l=ao(),u=A.filter(e=>e.result).map(e=>`【${e.system}】\n${e.text}\n${e.result}`).join(`
 
 `),f=ie||(a===`男`?`女`:`男`),m=``;m=c?`【紫微斗數】\n${Ia(Fa(n,r,i,o,0,f))}\n\n【八字】\n${Ga(Wa(n,r,i,o,f))}\n\n【西洋占星】\n${eo($a(n,r,i,o,s,24.9936,121.313))}`:`【八字（無時柱）】\n${Ga(Wa(n,r,i,12,f))}\n\n【西洋占星（noon chart）】\n${eo($a(n,r,i,12,0,24.9936,121.313))}`;let g=`以下是兩個人的命理資料（內部資料，不可對外揭露來源系統）：
