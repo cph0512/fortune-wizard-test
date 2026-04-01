@@ -160,38 +160,43 @@ ${d}
 ## 任務
 請綜合以上三套排盤資料，直接產出一份統一的命理報告。
 你需要自己解讀排盤資料、找出格局和重點，然後整合成報告。
+
+## 三系統權重
+以紫微斗數為主軸（佔50%），八字為輔證（佔30%），西洋占星為補充（佔20%）。
+具體做法：先從紫微斗數的命盤格局、四化飛化、大限流年建立核心結論，再用八字的四柱十神大運來驗證和補充紫微的判斷，最後用占星的行星相位宮位提供額外維度。
+三套排盤的結論必須交叉驗證：共鳴點重點強調，矛盾處以紫微為準、八字為輔判。這是我們的核心分析方法。
+
 ⚠️ 嚴格遵守系統規則：不提任何命理系統名稱和專有術語，用自然語言表達所有洞見。
 ⚠️ 按照指定的輸出格式（天賦特質 → 主題深度解析 → 年運勢 → 建議 → 近期提醒）組織內容。
 ⚠️ 重點針對用戶關注的「${l}」方向深入分析。
-⚠️ 三套排盤的結論要交叉驗證，共鳴點重點強調，矛盾處以多數為準。
 ⚠️ 絕對不可假設或猜測用戶的職業、行業、家庭狀況、生活背景。你只知道用戶提供的出生資料，不知道其他任何事。描述特質和建議時要保持中立通用，例如說「你適合需要統籌協調的領域」而不是「你適合供應鏈管理」。`,g=await fetch(to,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({images:[],system:f,prompt:m})});if(!g.ok)throw Error(`分析失敗`);let{job_id:v}=await g.json();k(`描繪你的命運藍圖...`);for(let e=0;e<300;e++){await new Promise(e=>setTimeout(e,3e3));try{let e=await fetch(`${to}/${v}`);if(!e.ok)continue;let t=await e.json();if(t.status===`done`){j(t.result),_o(ho(s,p,h,_,y,S,l),t.result);break}}catch{continue}}D(!1),k(``),o(To+1)}catch(e){F(`分析過程發生錯誤：`+e.message),D(!1)}finally{clearInterval(n)}},Le=async e=>{if(!(!e.trim()||he)){fe(t=>[...t,{role:`user`,text:e}]),me(``),ge(!0);try{let t=wo(vo(),l),n=de.slice(-6).map(e=>`${e.role===`user`?`問`:`答`}：${e.text}`).join(`
-`),r=`之前的分析報告：\n${A.slice(0,2e3)}\n\n${n?`對話紀錄：\n${n}\n\n`:``}用戶追問：${e}\n\n⚠️ 回答時嚴格遵守規則：不提任何命理系統名稱和專有術語，用自然語言回覆。`,i=await fetch(to,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({images:[],system:t,prompt:r})});if(!i.ok)throw Error(`送出失敗`);let{job_id:a}=await i.json();for(let e=0;e<200;e++){await new Promise(e=>setTimeout(e,3e3));let e=await fetch(`${to}/${a}`);if(!e.ok)continue;let t=await e.json();if(t.status===`done`){fe(e=>[...e,{role:`assistant`,text:t.result}]);break}}}catch(e){fe(t=>[...t,{role:`assistant`,text:`抱歉，回覆失敗：`+e.message}])}finally{ge(!1)}}},Re=async()=>{ce(!0),ue(``),F(``);let e=0;k(`正在解讀兩人的緣分密碼...`);let t=setInterval(()=>{let t=[`分析兩人的能量互動...`,`比對命運交會點...`,`推算關係走向...`,`描繪你們的緣分藍圖...`];e=(e+1)%t.length,k(t[e])},3e3);try{let e=parseInt(y)||0,t=parseInt(S)||0,n=parseInt(H),r=parseInt(W),i=parseInt(te),a=parseInt(re)||12,o=parseInt(ie)||0,c=re!==``,l=vo(),u=M.filter(e=>e.result).map(e=>`【${e.system}】\n${e.text}\n${e.result}`).join(`
-
-`),d=K||(s===`男`?`女`:`男`),f=``;f=c?`【紫微斗數】\n${Fa(Pa(n,r,i,a,0,d))}\n\n【八字】\n${Wa(Ua(n,r,i,a,d))}\n\n【西洋占星】\n${$a(Qa(n,r,i,a,o,24.9936,121.313))}`:`【八字（無時柱）】\n${Wa(Ua(n,r,i,12,d))}\n\n【西洋占星（noon chart）】\n${$a(Qa(n,r,i,12,0,24.9936,121.313))}`;let m=`以下是兩個人的命理資料（內部資料，不可對外揭露來源系統）：
+`),r=`之前的分析報告：\n${A.slice(0,2e3)}\n\n${n?`對話紀錄：\n${n}\n\n`:``}用戶追問：${e}\n\n⚠️ 回答時嚴格遵守規則：不提任何命理系統名稱和專有術語，用自然語言回覆。`,i=await fetch(to,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({images:[],system:t,prompt:r})});if(!i.ok)throw Error(`送出失敗`);let{job_id:a}=await i.json();for(let e=0;e<200;e++){await new Promise(e=>setTimeout(e,3e3));let e=await fetch(`${to}/${a}`);if(!e.ok)continue;let t=await e.json();if(t.status===`done`){fe(e=>[...e,{role:`assistant`,text:t.result}]);break}}}catch(e){fe(t=>[...t,{role:`assistant`,text:`抱歉，回覆失敗：`+e.message}])}finally{ge(!1)}}},Re=async()=>{ce(!0),ue(``),F(``);let e=0;k(`正在解讀兩人的緣分密碼...`);let t=setInterval(()=>{let t=[`分析兩人的能量互動...`,`比對命運交會點...`,`推算關係走向...`,`描繪你們的緣分藍圖...`];e=(e+1)%t.length,k(t[e])},3e3);try{let e=parseInt(y)||0,t=parseInt(S)||0,n=parseInt(H),r=parseInt(W),i=parseInt(te),a=parseInt(re)||12,o=parseInt(ie)||0,c=re!==``,l=vo(),u=M.find(e=>e.system===`紫微斗數`),d=u?`【紫微斗數】\n${u.text}`:``,f=K||(s===`男`?`女`:`男`),m=``;m=c?`【紫微斗數】\n${Fa(Pa(n,r,i,a,0,f))}`:`【紫微斗數（以午時起盤，精度略低）】\n${Fa(Pa(n,r,i,12,0,f))}`;let g=`以下是兩個人的命理資料（內部資料，不可對外揭露來源系統）：
 
 ## 本人
 - 性別：${s}
 - 出生：${p}年${h}月${_}日 ${e}時${t}分
 - 出生地：${w}
 
-${u}
+${d}
 
 ## 對方（${B||`對方`}）
 - 關係：${R}
-- 性別：${d}
+- 性別：${f}
 - 出生：${H}年${W}月${te}日${c?` ${a}時${o}分`:`（未知出生時間）`}
 ${c?`（有完整出生時間，分析精度高）`:`（無出生時間，以日間能量為主進行分析，精度略低）`}
 
-${f}
+${m}
 
 ## 任務
-請整合以上所有資料，分析這兩人作為「${R}」的關係。
+請根據兩人的紫微斗數命盤，透過飛化交叉、宮位互動來分析這兩人作為「${R}」的關係。
+重點分析：雙方命盤的宮位飛化互動、四化交叉影響、主星搭配的互補或衝突。
+
 ⚠️ 嚴格遵守規則：不提任何命理系統名稱和專有術語。
 ⚠️ 用自然語言描述兩人的互動與緣分。
-⚠️ 按照指定輸出格式。`,g=xo;l.length>0&&(g+=`
+⚠️ 按照指定輸出格式。`,v=xo;l.length>0&&(v+=`
 
 ## 內部知識庫（推理用，不可對外提及）
-`,l.forEach(e=>{g+=`- ${e.title}: ${e.content.slice(0,200)}\n`}));let v=await fetch(to,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({images:[],system:g,prompt:m})});if(!v.ok)throw Error(`合盤分析送出失敗`);let{job_id:b}=await v.json();for(let e=0;e<300;e++){await new Promise(e=>setTimeout(e,3e3));try{let e=await fetch(`${to}/${b}`);if(!e.ok)continue;let t=await e.json();if(t.status===`done`){ue(t.result);break}}catch{continue}}}catch(e){F(`合盤分析錯誤：`+e.message)}finally{ce(!1),k(``),clearInterval(t)}},ze=e=>{if(!e)return null;let t=e.replace(/^#{1,6}\s*/gm,``).replace(/\*\*([^*]+)\*\*/g,`$1`).replace(/\*([^*]+)\*/g,`$1`).replace(/__([^_]+)__/g,`$1`).replace(/_([^_]+)_/g,`$1`).replace(/```[\s\S]*?```/g,``).replace(/`([^`]+)`/g,`$1`).replace(/^\|.*\|$/gm,``).replace(/^[-|:]+$/gm,``).replace(/^>\s*/gm,``).replace(/^[-*+]\s+/gm,``).replace(/^\d+\.\s+/gm,``).replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}\u{2702}-\u{27B0}\u{200D}\u{20E3}\u{FE0F}\u{E0020}-\u{E007F}✦✧★☆♠♣♥♦⚡❌✅✓✔❤️‍♀️♂️☀️☁️⭐️❄️☯️⚠️]/gu,``).replace(/\n{3,}/g,`
+`,l.forEach(e=>{v+=`- ${e.title}: ${e.content.slice(0,200)}\n`}));let b=await fetch(to,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({images:[],system:v,prompt:g})});if(!b.ok)throw Error(`合盤分析送出失敗`);let{job_id:x}=await b.json();for(let e=0;e<300;e++){await new Promise(e=>setTimeout(e,3e3));try{let e=await fetch(`${to}/${x}`);if(!e.ok)continue;let t=await e.json();if(t.status===`done`){ue(t.result);break}}catch{continue}}}catch(e){F(`合盤分析錯誤：`+e.message)}finally{ce(!1),k(``),clearInterval(t)}},ze=e=>{if(!e)return null;let t=e.replace(/^#{1,6}\s*/gm,``).replace(/\*\*([^*]+)\*\*/g,`$1`).replace(/\*([^*]+)\*/g,`$1`).replace(/__([^_]+)__/g,`$1`).replace(/_([^_]+)_/g,`$1`).replace(/```[\s\S]*?```/g,``).replace(/`([^`]+)`/g,`$1`).replace(/^\|.*\|$/gm,``).replace(/^[-|:]+$/gm,``).replace(/^>\s*/gm,``).replace(/^[-*+]\s+/gm,``).replace(/^\d+\.\s+/gm,``).replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}\u{2702}-\u{27B0}\u{200D}\u{20E3}\u{FE0F}\u{E0020}-\u{E007F}✦✧★☆♠♣♥♦⚡❌✅✓✔❤️‍♀️♂️☀️☁️⭐️❄️☯️⚠️]/gu,``).replace(/\n{3,}/g,`
 
 `).trim();t=t.replace(/【\s*SECTION\s*】/gi,`[SECTION]`).replace(/\[\s*SECTION\s*\]\s*[:：\-—]/gi,`[SECTION]`).replace(/\[\s*SECTION\s*\]/gi,`[SECTION]`);let n=t.split(/\[SECTION\]\s*/),r=[],i=e=>e.replace(/\[?\s*SECTION\s*\]?\s*[:：\-—]?\s*/gi,``).replace(/【\s*SECTION\s*】\s*/gi,``).trim();for(let e of n){let t=e.trim();if(!t)continue;let n=t.split(`
 `),a=i(n[0].trim()),o=i(n.slice(1).join(`
